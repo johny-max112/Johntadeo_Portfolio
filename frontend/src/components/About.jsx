@@ -14,8 +14,12 @@ function About() {
     >
       <h3>About Me</h3>
       <div className="about-grid">
-        <div className="profile-placeholder" aria-hidden="true">
-          <span>Photo</span>
+        <div className="profile-frame">
+          <img
+            className="profile-image"
+            src="/johns_img.png"
+            alt="John Tadeo Liscano profile photo"
+          />
         </div>
         <p>{summary}</p>
       </div>
