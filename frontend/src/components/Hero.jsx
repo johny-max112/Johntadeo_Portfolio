@@ -10,7 +10,7 @@ function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        Full Stack Engineer Portfolio
+        Full Stack Developer
       </motion.p>
 
       <motion.h1
