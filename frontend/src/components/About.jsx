@@ -4,6 +4,8 @@ const summary =
   'Detail-oriented and tech-savvy IT student with hands-on experience in system development, data management, and workflow organization. I use web technologies, AI tools, and automation platforms to reduce manual tasks and improve process efficiency while maintaining clean, scalable code.'
 
 function About() {
+  const profileImageSrc = `${import.meta.env.BASE_URL}johns_img.png`
+
   return (
     <motion.section
       className="section"
@@ -17,7 +19,7 @@ function About() {
         <div className="profile-frame">
           <img
             className="profile-image"
-            src="/johns_img.png"
+            src={profileImageSrc}
             alt="John Tadeo Liscano profile photo"
           />
         </div>
