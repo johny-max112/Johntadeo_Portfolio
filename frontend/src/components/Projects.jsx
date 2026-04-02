@@ -14,7 +14,7 @@ const projects = [
     name: 'Enrollment Management System',
     description:
       'A record management platform for adding, editing, and storing student data with backend integration and organized system logic.',
-    stack: ['JavaScript', 'Express', 'MySQL', 'Postman'],
+    stack: ['JavaScript+react', 'node.js+Express', 'MySQL', 'Postman'],
     github: 'https://github.com/johny-max112/PNHS_EnrollmentManagementSystem',
     
   },
@@ -25,6 +25,12 @@ const projects = [
     stack: ['HTML', 'CSS', 'JavaScript', 'SQL'],
     github: 'https://github.com/johny-max112/StudentRecordingSystem',
    
+  },
+  {
+    name:'Point of sale system(POS)',
+    description:'Developed a Mini POS system using Full Stack Development with Database integration, using web  technologies, I turn this into a dektop application to simulate real world POS system this application is for Mini Sari-sari store or Grocery Stores',
+    stack: ['JavaScript+react', 'node.js+Express', 'Mysql', 'Postman', 'electron.js'],
+    github:'https://github.com/johny-max112/mini-pos',
   },
 ]
 
