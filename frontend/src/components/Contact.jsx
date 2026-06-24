@@ -38,7 +38,7 @@ function Contact() {
           <a href="tel:+639911437415">
             <FiPhone /> +63 991 143 7415
           </a>
-          <a href="https://github.com/" target="_blank" rel="noreferrer">
+          <a href="https://github.com/johny-max112" target="_blank" rel="noreferrer">
             <FiGithub /> GitHub
           </a>
           <a
