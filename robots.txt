@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://johny-max112.github.io/Johntadeo_Portfolio/sitemap.xml
