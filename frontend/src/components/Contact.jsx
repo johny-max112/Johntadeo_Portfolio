@@ -8,17 +8,51 @@ const initialForm = {
   message: '',
 }
 
+// Set VITE_API_URL in a .env file to point at your deployed backend.
+// Defaults to the local Express dev server.
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000'
+
 function Contact() {
   const [formData, setFormData] = useState(initialForm)
+  const [status, setStatus] = useState({ type: 'idle', message: '' })
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleChange = (event) => {
     const { name, value } = event.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
-    setFormData(initialForm)
+    if (isSubmitting) return
+
+    setIsSubmitting(true)
+    setStatus({ type: 'idle', message: '' })
+
+    try {
+      const response = await fetch(`${API_URL}/api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json().catch(() => ({}))
+
+      if (!response.ok || !data.ok) {
+        throw new Error(data.error || 'Failed to send message.')
+      }
+
+      setStatus({ type: 'success', message: 'Thanks! Your message has been sent.' })
+      setFormData(initialForm)
+    } catch (err) {
+      setStatus({
+        type: 'error',
+        message:
+          err.message || 'Sorry, something went wrong. Please try again later.',
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -81,9 +115,17 @@ function Contact() {
             onChange={handleChange}
           />
 
-          <button type="submit" className="btn btn-primary">
-            Send Message
+          <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
+            {isSubmitting ? 'Sending…' : 'Send Message'}
           </button>
+          {status.type !== 'idle' && (
+            <p
+              className={`form-status form-status--${status.type}`}
+              role={status.type === 'error' ? 'alert' : 'status'}
+            >
+              {status.message}
+            </p>
+          )}
         </form>
       </div>
     </motion.section>

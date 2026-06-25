@@ -1,4 +1,6 @@
+# ============================================================
 # Logs
+# ============================================================
 logs
 *.log
 npm-debug.log*
@@ -7,18 +9,55 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# ============================================================
+# Dependencies
+# ============================================================
 node_modules
+.pnp
+.pnp.js
+
+# ============================================================
+# Build output
+# ============================================================
 dist
 dist-ssr
+build
+.vite
 *.local
 
-# Editor directories and files
+# ============================================================
+# Editor / OS
+# ============================================================
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
 .idea
 .DS_Store
+Thumbs.db
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# ============================================================
+# Environment files (NEVER commit real credentials)
+# Templates are whitelisted so they ARE committed.
+# ============================================================
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+!backend/.env.example
+
+# ============================================================
+# Backend — keep the source code, drop local artifacts & secrets
+# ============================================================
+backend/node_modules/
+backend/dist/
+backend/.env
+backend/.env.*
+backend/npm-debug.log*
+backend/.cache/
+backend/coverage/
